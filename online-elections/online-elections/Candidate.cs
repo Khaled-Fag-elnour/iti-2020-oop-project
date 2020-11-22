@@ -8,9 +8,9 @@ namespace online_elections
 {
     class Candidate
     {
-        public int candId;
-        public string candName;
-        public int noOfVotes;
+        private int candId;
+        private string candName;
+        private int noOfVotes=0;
 
         public Candidate(int id, string name)
         {
@@ -18,13 +18,24 @@ namespace online_elections
             candName = name;
         }
 
-        public void setVotes()
+        public void addVote()
         {
             this.noOfVotes++;
         }
+        
         public int getVotes()
         {
             return noOfVotes;
+        }
+        
+        public void displayInfo()
+        {
+            this.ToString();
+        }
+        
+        public override string ToString()
+        {
+            return "Candidate name : " + this.candName + " Candidate ID : " + this.candId;
         }
     }
 }

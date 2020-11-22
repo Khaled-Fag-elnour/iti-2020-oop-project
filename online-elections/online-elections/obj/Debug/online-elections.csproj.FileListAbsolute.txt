@@ -1,7 +1,7 @@
-E:\Khaled\ITI 3 months FrontEnd & Cross Platform\OOP using C#\iti-2020-oop-project\online-elections\online-elections\bin\Debug\online-elections.exe.config
-E:\Khaled\ITI 3 months FrontEnd & Cross Platform\OOP using C#\iti-2020-oop-project\online-elections\online-elections\bin\Debug\online-elections.exe
-E:\Khaled\ITI 3 months FrontEnd & Cross Platform\OOP using C#\iti-2020-oop-project\online-elections\online-elections\bin\Debug\online-elections.pdb
-E:\Khaled\ITI 3 months FrontEnd & Cross Platform\OOP using C#\iti-2020-oop-project\online-elections\online-elections\obj\Debug\online-elections.csprojAssemblyReference.cache
-E:\Khaled\ITI 3 months FrontEnd & Cross Platform\OOP using C#\iti-2020-oop-project\online-elections\online-elections\obj\Debug\online-elections.csproj.CoreCompileInputs.cache
-E:\Khaled\ITI 3 months FrontEnd & Cross Platform\OOP using C#\iti-2020-oop-project\online-elections\online-elections\obj\Debug\online-elections.exe
-E:\Khaled\ITI 3 months FrontEnd & Cross Platform\OOP using C#\iti-2020-oop-project\online-elections\online-elections\obj\Debug\online-elections.pdb
+E:/Khaled/ITI 3 months FrontEnd & Cross Platform/OOP using C#/iti-2020-oop-project/online-elections/online-elections/bin/Debug/online-elections.exe.config
+E:/Khaled/ITI 3 months FrontEnd & Cross Platform/OOP using C#/iti-2020-oop-project/online-elections/online-elections/bin/Debug/online-elections.exe
+E:/Khaled/ITI 3 months FrontEnd & Cross Platform/OOP using C#/iti-2020-oop-project/online-elections/online-elections/bin/Debug/online-elections.pdb
+E:/Khaled/ITI 3 months FrontEnd & Cross Platform/OOP using C#/iti-2020-oop-project/online-elections/online-elections/obj/Debug/online-elections.csprojAssemblyReference.cache
+E:/Khaled/ITI 3 months FrontEnd & Cross Platform/OOP using C#/iti-2020-oop-project/online-elections/online-elections/obj/Debug/online-elections.csproj.CoreCompileInputs.cache
+E:/Khaled/ITI 3 months FrontEnd & Cross Platform/OOP using C#/iti-2020-oop-project/online-elections/online-elections/obj/Debug/online-elections.exe
+E:/Khaled/ITI 3 months FrontEnd & Cross Platform/OOP using C#/iti-2020-oop-project/online-elections/online-elections/obj/Debug/online-elections.pdb

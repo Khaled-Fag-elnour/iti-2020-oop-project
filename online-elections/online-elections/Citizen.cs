@@ -8,28 +8,30 @@ namespace online_elections
 {
     class Citizen
     {
-        public int nationalId;
-        public string name;
-        public int age;
-        public bool hasCriminalRecord;
-        public bool alreadyVoted = false;
+        public int NationalId { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public bool HasCriminalRecord { get; set; }
+        public bool AlreadyVoted { get; set; }
+
         public Queue<Vote> votesList = new Queue<Vote>();
+
 
         public Citizen(int id, string name, int age, bool hasCriminalRecord, bool alreadyVoted)
         {
-            nationalId = id;
-            this.name = name;
-            this.age = age;
-            this.hasCriminalRecord = hasCriminalRecord;
-            this.alreadyVoted = alreadyVoted;
+            NationalId = id;
+            Name = name;
+            Age = age;
+            HasCriminalRecord = hasCriminalRecord;
+            AlreadyVoted = alreadyVoted;
         }
 
         public void Vote(Candidate c)
         {
-            c.setVotes();
-            this.alreadyVoted = true;
+            c.addVote();
+            this.AlreadyVoted = true;
 
-            Vote newvote = new Vote(this.nationalId, c.candId);
+            Vote newvote = new Vote(this.NationalId, c.CandId);
             votesList.Enqueue(newvote);
         }
     }

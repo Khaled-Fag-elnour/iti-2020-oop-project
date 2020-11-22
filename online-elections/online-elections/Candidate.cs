@@ -14,8 +14,8 @@ namespace online_elections
 
         public Candidate(int id, string name)
         {
-            candId = id;
-            candName = name;
+            setID(id);
+            setName(name);
         }
 
         public void addVote()
@@ -27,7 +27,22 @@ namespace online_elections
         {
             return noOfVotes;
         }
-        
+        public void setName(string str)
+        {
+            this.candName = str;
+        }
+        public void setID(int id)
+        {
+            this.candId = id;
+        }
+        public string getName()
+        {
+            return this.candName;
+        }
+        public int getID()
+        {
+            return this.candId;
+        }
         public void displayInfo()
         {
             this.ToString();

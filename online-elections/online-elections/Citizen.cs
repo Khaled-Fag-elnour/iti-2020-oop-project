@@ -14,7 +14,7 @@ namespace online_elections
         public bool HasCriminalRecord { get; set; }
         public bool AlreadyVoted { get; set; }
 
-        public Queue<Vote> votesList = new Queue<Vote>();
+        public static Queue<VoteInfo> votesList = new Queue<VoteInfo>();
 
 
         public Citizen(int id, string name, int age, bool hasCriminalRecord, bool alreadyVoted)
@@ -31,8 +31,10 @@ namespace online_elections
             c.addVote();
             this.AlreadyVoted = true;
 
-            Vote newvote = new Vote(this.NationalId, c.CandId);
+            VoteInfo newvote = new VoteInfo(this.NationalId, c.getID());
             votesList.Enqueue(newvote);
+            VoteInfo.StoreInformation(newvote);
+
         }
     }
 }

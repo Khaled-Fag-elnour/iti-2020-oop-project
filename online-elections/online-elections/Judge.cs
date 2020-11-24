@@ -9,7 +9,7 @@ namespace online_elections
     class Judge
     {
          String name;
-        public static Judge instance = null;
+      
         public Judge() {
            
         
@@ -48,17 +48,17 @@ namespace online_elections
 
             return winners;
         }
-        public Boolean checkDataIsCorrect(int id , String name,int Age ,List<Citizen> citizens)
+        public Citizen checkDataIsCorrect(int id , String name,int Age ,List<Citizen> citizens)
         {
-            Boolean allowedToVote = false;
-            foreach(Citizen c in citizens)
+             foreach(Citizen c in citizens)
             {
 
-                if (c.Name == name && c.NationalId == id && c.Age == Age && Age > 18&&c.AlreadyVoted==false)
-                    allowedToVote = true;
+                if (c.Name.Equals( name, StringComparison.InvariantCultureIgnoreCase) && c.NationalId == id  && c.Age > 18&&c.AlreadyVoted==false)
+                   
+                return c;
                     
             }
-            return allowedToVote;
+            return null;
 
 
         }

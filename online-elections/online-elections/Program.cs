@@ -9,85 +9,83 @@ namespace online_elections
     class Program
     {
 
-        Citizen[] citizenList = new Citizen[4];
-        Citizen citizen_1 = new Citizen(1, "Mohamad", 19, false, true);
-        Citizen citizen_2 = new Citizen(2, "Ahmad", 16, false, false);
-        Citizen citizen_3 = new Citizen(3, "Khaled", 23, true, false);
-        Citizen citizen_4 = new Citizen(4, "Omar", 37, false, false);
-
-
-        public Citizen CheckId(int enteredId, ref int wrongId)
+        static void Main(string[] args)
         {
-            for (int i = 0; i < citizenList.Length; i++)
-            {
-                if (enteredId == citizenList[i].NationalId)
-                    return citizenList[i];
-            }
-            wrongId = 1;
-            return null;
-        }
+            Data electionsData = new Data();
+            List<Candidate> candidates = electionsData.getCandidateList();
+            List<Citizen> citizens = electionsData.getCitizenList();
+            Citizen citizen_1 = new Citizen(1, "Mohamed", 19, false);
+            Citizen citizen_2 = new Citizen(2, "Ahmed", 20, false);
+            Citizen citizen_3 = new Citizen(3, "Khaled", 23, true);
+            Citizen citizen_4 = new Citizen(4, "Omar", 37, false);
+            Candidate c1 = new Candidate(1, "Trump");
+            Candidate c2 = new Candidate(2, "Biden");
+            Judge j = new Judge();
+            Boolean wantTocontinue = true;
 
-        public void Validation(Citizen c)
-        {
-            if (c.Age < 18)
+            while (wantTocontinue)
             {
+                Console.WriteLine("Please enter Name");
+                String name = Console.ReadLine();
+                Console.WriteLine("Please enter id");
+                int id = int.Parse(Console.ReadLine());
+                if (j.checkDataIsCorrect(id, name, citizens) != null)
+                {
+                    Console.WriteLine("Valid to Vote");
+                    Console.WriteLine("Please choose between :");
+                    foreach (Candidate c in candidates)
+                    {
+                        Console.WriteLine(" enter " + c.getID() + " For " + c.getName());
 
-                Console.WriteLine("\nSorry {0}, only people above 18 are allowed to vote.", c.Name);
-                return;
-            }
-            else if (c.HasCriminalRecord)
+                    }
+                    Citizen citizen = j.checkDataIsCorrect(id, name, citizens);
+                    int idOfCandidate = int.Parse(Console.ReadLine());
+                    foreach (Candidate c in candidates)
+                    {
+                        if (c.getID() == idOfCandidate)
+                            citizen.Vote(c);
+
+                    }
+
+
+                }
+                else
+                    Console.WriteLine("Name or id is not Valid");
+
+                Console.WriteLine(" please if you want to continue to add votes enter y for yes and N for no ");
+                String proceed = Console.ReadLine();
+                if (proceed.Equals("y", StringComparison.InvariantCultureIgnoreCase))
+                    wantTocontinue = true;
+                else
+                    wantTocontinue = false;
+
+
+                }
+           
+
+            List<Candidate> winners = j.whoWins(candidates);
+            
+
+            if (winners.Count == 1)
             {
-                Console.WriteLine("\nSorry {0}, you cannot vote due to your criminal record.", c.Name);
-                return;
-            }
-            else if (c.AlreadyVoted)
-            {
-                Console.WriteLine("\nHello {0}, you already voted. \nYou are not allowed to vote again.", c.Name);
-                return;
+            
+                Console.WriteLine(" the Winner is " + winners[0]);
+               
             }
             else
             {
-                Console.WriteLine("\nWelcome {0}", c.Name);
+                Console.WriteLine(" Rematch required between ");
+                foreach (Candidate c in candidates)
+                {
+                    Console.WriteLine(c);
+
+                }
+
+               
+
+
             }
-        }
-
-
-
-        static void Main(string[] args)
-        {
-            Program p = new Program();
-            p.citizenList[0] = p.citizen_1;
-            p.citizenList[1] = p.citizen_2;
-            p.citizenList[2] = p.citizen_3;
-            p.citizenList[3] = p.citizen_4;
-
-
-            int enteredId = 0;
-            int wrongId = 0;
-
-            do
-            {
-                if (wrongId == 1)
-                {
-                    Console.WriteLine("Sorry, incorrect ID");
-                    Console.WriteLine("Please enter a valid ID: ");
-                    enteredId = int.Parse(Console.ReadLine());
-                }
-                else
-                {
-                    Console.WriteLine("Please enter your ID to submit your vote: ");
-                    enteredId = int.Parse(Console.ReadLine());
-
-                }
-
-            } while (p.CheckId(enteredId, ref wrongId) == null);
-
-            Citizen currentCitizen = p.CheckId(enteredId, ref wrongId);
-            p.Validation(currentCitizen);
-
-
             Console.ReadKey();
 
         }
-    }
 }

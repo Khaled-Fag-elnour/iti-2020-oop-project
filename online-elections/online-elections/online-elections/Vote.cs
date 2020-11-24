@@ -33,12 +33,11 @@ namespace online_elections
                 {
                     sw.WriteLine("-{0}\n\n", newVote.ToString());
                 }
-            } catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e);
             }
         }
     }
-
-
 }

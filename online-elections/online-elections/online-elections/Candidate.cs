@@ -17,6 +17,10 @@ namespace online_elections
             setID(id);
             setName(name);
         }
+        public Candidate()
+        {
+           
+        }
 
         public void addVote()
         {
@@ -41,7 +45,7 @@ namespace online_elections
         }
         public int getID()
         {
-            return this.candId;
+            return candId;
         }
         public void displayInfo()
         {
@@ -50,7 +54,8 @@ namespace online_elections
         
         public override string ToString()
         {
-            return "Candidate name : " + this.candName + " Candidate ID : " + this.candId;
+            return this.candName+" with " +
+                this.noOfVotes+" Voices";
         }
     }
 }

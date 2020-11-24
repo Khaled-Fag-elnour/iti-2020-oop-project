@@ -11,19 +11,21 @@ namespace online_elections
         public int NationalId { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
-        public bool HasCriminalRecord { get; set; }
         public bool AlreadyVoted { get; set; }
 
-        public static Queue<VoteInfo> votesList = new Queue<VoteInfo>();
+        public Queue<VoteInfo> votesList = new Queue<VoteInfo>();
 
 
-        public Citizen(int id, string name, int age, bool hasCriminalRecord, bool alreadyVoted)
+        public Citizen(int id, string name, int age)
         {
             NationalId = id;
             Name = name;
             Age = age;
-            HasCriminalRecord = hasCriminalRecord;
-            AlreadyVoted = alreadyVoted;
+        }
+        public Citizen()
+        {
+           
+
         }
 
         public void Vote(Candidate c)
@@ -34,7 +36,25 @@ namespace online_elections
             VoteInfo newvote = new VoteInfo(this.NationalId, c.getID());
             votesList.Enqueue(newvote);
             VoteInfo.StoreInformation(newvote);
+        }
 
+        public bool Validation()
+        {
+            if (this.Age < 18)
+            {
+
+                Console.WriteLine("\nSorry {0}, only people above 18 are allowed to vote.\n", this.Name);
+                return false;
+            }
+            else if (this.AlreadyVoted)
+            {
+                Console.WriteLine("\nSorry {0}, You are not allowed to vote again.\n", this.Name);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
